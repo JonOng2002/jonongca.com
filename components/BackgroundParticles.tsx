@@ -2,16 +2,16 @@ import React, { useMemo } from 'react';
 
 export const BackgroundParticles: React.FC = () => {
   const particles = useMemo(() => {
-    // Green focus colors as requested
-    const colours = ['#4ade80', '#6ee7b7', '#10B981'];
+    // Warm complementary colors (amber, gold, soft orange) to contrast nicely with the dark blue grid and green accents
+    const colours = ['#f59e0b', '#fbbf24', '#fcd34d', '#fb923c'];
     return Array.from({ length: 50 }).map((_, i) => ({
       id: i,
-      size: Math.random() * 4 + 2, 
+      size: Math.random() * 6 + 3, // Increased size
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
       duration: `${Math.random() * 15 + 15}s`,
       delay: `${Math.random() * 10}s`,
-      opacity: Math.random() * 0.15 + 0.1, // 0.1 to 0.25 opacity range
+      opacity: Math.random() * 0.25 + 0.15, // Increased opacity for visibility
       colour: colours[Math.floor(Math.random() * colours.length)],
       animationType: i % 2 === 0 ? 'animate-float' : 'animate-float-delayed',
     }));

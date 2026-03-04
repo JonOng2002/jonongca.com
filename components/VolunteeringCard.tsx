@@ -1,41 +1,60 @@
-
 import React from 'react';
 
-export const VolunteeringCard: React.FC = () => {
+interface VolunteeringProps {
+  imageUrl?: string;
+}
+
+export const VolunteeringCard: React.FC<VolunteeringProps> = ({ imageUrl }) => {
   return (
-    <div className="group relative rounded-3xl p-8 h-full overflow-hidden transition-all hover:scale-[1.02] border border-emerald-500/10 dark:border-emerald-500/20 glass">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-emerald-500/5 -z-10 opacity-50"></div>
-      
-      <div className="flex flex-col h-full relative z-10 justify-between">
-        <div>
-          <div className="flex justify-between items-start mb-6">
-            <div className="p-3 bg-orange-500/10 rounded-2xl text-orange-600 dark:text-orange-400 group-hover:rotate-12 transition-transform shadow-inner">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    <div className="glass rounded-[2rem] h-full group transition-all duration-500 relative overflow-hidden bg-white dark:bg-[#0c1a10] flex flex-col justify-end p-6 hover:shadow-xl min-h-[300px]">
+
+      {/* Floating slanted photo frame — straightens on hover */}
+      <div className="absolute inset-0 z-0 p-5 flex items-center justify-center">
+        <div
+          className="w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/10
+                     rotate-[-7deg] -translate-x-3
+                     group-hover:rotate-0 group-hover:translate-x-0
+                     transition-all duration-700 ease-out"
+        >
+          {imageUrl ? (
+            <img
+              src={imageUrl}
+              alt="Volunteering at TRTL SG"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-orange-500/80 to-emerald-900/80 flex items-center justify-center">
+              <svg className="w-24 h-24 text-white/50" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
               </svg>
             </div>
-          </div>
-
-          <h3 className="text-2xl font-bold text-emerald-950 dark:text-white mb-1 font-display">Giving Back</h3>
-          <p className="text-xs font-bold text-orange-600 dark:text-orange-400 uppercase tracking-[0.2em] mb-4 font-mono">The Right To Live SG</p>
-
-          <p className="text-emerald-900/70 dark:text-emerald-100/60 text-sm leading-relaxed max-w-xl">
-            Volunteering at TRTL SG to alleviate weekend manpower shortages. I focus on animal enrichment and rehabilitation, directly improving quality of life for <span className="font-bold text-emerald-950 dark:text-white underline decoration-orange-500/30">15-20 rescue dogs</span> each week.
-          </p>
-        </div>
-
-        <div className="flex justify-between items-end shrink-0 border-t border-emerald-500/10 pt-6 mt-6">
-           <div className="text-left">
-             <p className="text-[10px] font-mono text-emerald-500/50 uppercase tracking-widest mb-1">Duration</p>
-             <p className="text-sm font-bold text-emerald-950 dark:text-emerald-100">Jan - Dec 2024</p>
-           </div>
-           <div className="text-right">
-             <p className="text-[10px] font-mono text-emerald-500/50 uppercase tracking-widest mb-1">Impact Area</p>
-             <p className="text-sm font-bold text-orange-500 uppercase tracking-tight">Animal Welfare</p>
-           </div>
+          )}
         </div>
       </div>
+
+      {/* Dark gradient overlay — fades in on hover */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      {/* Label pill — always visible */}
+      <div className="absolute top-4 left-4 z-20">
+        <div className="bg-white/90 dark:bg-orange-900/60 backdrop-blur-md text-orange-600 dark:text-orange-300 text-[10px] font-bold px-3 py-1.5 rounded-full tracking-[0.1em] uppercase shadow-sm border border-zinc-200 dark:border-orange-500/30">
+          Volunteering
+        </div>
+      </div>
+
+      {/* Hover text content */}
+      <div className="relative z-20 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+        <h4 className="font-bold text-white text-2xl font-display drop-shadow-md">Giving Back</h4>
+        <p className="text-[12px] text-orange-400 font-bold uppercase tracking-wider font-display drop-shadow-md">The Right To Live SG</p>
+        <p className="text-white/70 text-xs mt-2 leading-relaxed">
+          Animal enrichment and rehabilitation — improving quality of life for 15–20 rescue dogs each week.
+        </p>
+        <div className="flex gap-2 mt-3">
+          <span className="text-[10px] font-mono font-bold text-white/70 bg-white/10 px-2 py-0.5 rounded-md border border-white/10">Jan – Dec 2024</span>
+          <span className="text-[10px] font-mono font-bold text-orange-400/90 bg-orange-500/10 px-2 py-0.5 rounded-md border border-orange-500/20">Animal Welfare</span>
+        </div>
+      </div>
+
     </div>
   );
 };

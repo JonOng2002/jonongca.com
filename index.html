@@ -1,179 +1,191 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan Ong | DevOps & AI Engineer</title>
-    
-    <!-- Dynamic Favicon -->
-    <link id="favicon" rel="icon" href="/favicon-96x96.png" type="image/png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              ivory: '#F9F8F3',
-              beige: '#F2EFE9',
-              forest: {
-                DEFAULT: '#064E3B',
-                accent: '#059669',
-                muted: '#E6EDE9',
-              },
-              primary: {
-                DEFAULT: 'var(--primary)',
-                soft: 'var(--primary-soft)',
-                hover: 'var(--primary-hover)',
-              },
-              slate: {
-                850: '#1e293b',
-              },
-              emerald: {
-                950: '#051f0e',
-              }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jonathan Ong | DevOps & AI Engineer</title>
+
+  <!-- Dynamic Favicon -->
+  <link id="favicon" rel="icon" href="/favicon-96x96.png" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#F9F8F3',
+            beige: '#F2EFE9',
+            forest: {
+              DEFAULT: '#064E3B',
+              accent: '#059669',
+              muted: '#E6EDE9',
             },
-            fontFamily: {
-              display: ['Instrument Sans', 'sans-serif'],
-              sans: ['Inter', 'sans-serif'],
-              mono: ['Fira Code', 'monospace'],
+            primary: {
+              DEFAULT: 'var(--primary)',
+              soft: 'var(--primary-soft)',
+              hover: 'var(--primary-hover)',
             },
-            animation: {
-              'scroll': 'scroll 20s linear infinite',
-              'scroll-vertical': 'scroll-vertical 25s linear infinite',
-              'float': 'float 18s ease-in-out infinite',
-              'float-delayed': 'float-delayed 22s ease-in-out infinite',
+            slate: {
+              850: '#0d1f14',
             },
-            keyframes: {
-              scroll: {
-                '0%': { transform: 'translateX(0)' },
-                '100%': { transform: 'translateX(-50%)' },
-              },
-              'scroll-vertical': {
-                '0%': { transform: 'translateY(0)' },
-                '100%': { transform: 'translateY(-50%)' },
-              },
-              float: {
-                '0%, 100%': { transform: 'translate(0, 0)' },
-                '33%': { transform: 'translate(35px, -25px)' },
-                '66%': { transform: 'translate(-15px, -50px)' },
-              },
-              'float-delayed': {
-                '0%, 100%': { transform: 'translate(0, 0)' },
-                '33%': { transform: 'translate(-35px, 25px)' },
-                '66%': { transform: 'translate(15px, 50px)' },
-              }
+            emerald: {
+              950: '#051f0e',
             }
           },
+          fontFamily: {
+            display: ['Instrument Sans', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Fira Code', 'monospace'],
+          },
+          animation: {
+            'scroll': 'scroll 20s linear infinite',
+            'scroll-vertical': 'scroll-vertical 25s linear infinite',
+            'float': 'float 18s ease-in-out infinite',
+            'float-delayed': 'float-delayed 22s ease-in-out infinite',
+          },
+          keyframes: {
+            scroll: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            'scroll-vertical': {
+              '0%': { transform: 'translateY(0)' },
+              '100%': { transform: 'translateY(-50%)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translate(0, 0)' },
+              '33%': { transform: 'translate(35px, -25px)' },
+              '66%': { transform: 'translate(-15px, -50px)' },
+            },
+            'float-delayed': {
+              '0%, 100%': { transform: 'translate(0, 0)' },
+              '33%': { transform: 'translate(-35px, 25px)' },
+              '66%': { transform: 'translate(15px, 50px)' },
+            }
+          }
         },
+      },
+    }
+  </script>
+  <style>
+    :root {
+      /* Dark variables - deep forest green base */
+      --bg-start: #071510;
+      --bg-end: #0a1f12;
+      --surface: rgba(12, 30, 18, 0.75);
+      --surface-2: #047857;
+      --border: rgba(5, 150, 105, 0.15);
+      --text: #f1f5f9;
+      --muted: #d1fae5;
+      --primary: #059669;
+      /* Standardized Forest/Emerald Green */
+      --primary-soft: rgba(5, 150, 105, 0.12);
+      --primary-hover: #10b981;
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .light {
+      /* Warm Ivory & Forest Palette */
+      --bg-start: #F9F8F3;
+      --bg-end: #F2EFE9;
+      --surface: rgba(255, 255, 255, 0.9);
+      --surface-2: #F2EFE9;
+      --border: #E5E1D8;
+      --text: #064E3B;
+      --muted: #4B5563;
+      --primary: #064E3B;
+      --primary-soft: #E6EDE9;
+      --primary-hover: #059669;
+      --shadow: 0 4px 20px rgba(6, 78, 59, 0.04);
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+      background-attachment: fixed;
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.5s ease;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-display {
+      font-family: 'Instrument Sans', sans-serif;
+    }
+
+    .glass {
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass:hover {
+      transform: translateY(-2px);
+    }
+
+    .dark .glass:hover {
+      border-color: rgba(5, 150, 105, 0.4);
+      background: rgba(12, 30, 18, 0.9);
+      box-shadow: 0 20px 50px rgba(4, 120, 87, 0.15);
+    }
+
+    .light .glass:hover {
+      background: #ffffff;
+      border-color: #D1CDC2;
+      box-shadow: 0 12px 30px rgba(6, 78, 59, 0.08);
+    }
+
+    .scroll-container {
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-start);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--surface-2);
+      border-radius: 10px;
+    }
+
+    .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      border-top-color: #fff;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
       }
-    </script>
-    <style>
-        :root {
-          /* Dark variables */
-          --bg-start: #0f172a;
-          --bg-end: #051f0e;
-          --surface: rgba(30, 41, 59, 0.7);
-          --surface-2: #047857;
-          --border: rgba(5, 150, 105, 0.15);
-          --text: #f1f5f9;
-          --muted: #d1fae5;
-          --primary: #059669; /* Standardized Forest/Emerald Green */
-          --primary-soft: rgba(5, 150, 105, 0.12);
-          --primary-hover: #10b981;
-          --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
+    }
+  </style>
 
-        .light {
-          /* Warm Ivory & Forest Palette */
-          --bg-start: #F9F8F3; 
-          --bg-end: #F2EFE9;   
-          --surface: rgba(255, 255, 255, 0.9);
-          --surface-2: #F2EFE9;
-          --border: #E5E1D8;
-          --text: #064E3B; 
-          --muted: #4B5563;
-          --primary: #064E3B;
-          --primary-soft: #E6EDE9;
-          --primary-hover: #059669;
-          --shadow: 0 4px 20px rgba(6, 78, 59, 0.04);
-        }
-
-        body {
-            background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
-            background-attachment: fixed;
-            color: var(--text);
-            min-height: 100vh;
-            transition: background 0.5s ease;
-        }
-
-        h1, h2, h3, h4, .font-display {
-          font-family: 'Instrument Sans', sans-serif;
-        }
-
-        .glass {
-            background: var(--surface);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .glass:hover {
-            transform: translateY(-2px);
-        }
-
-        .dark .glass:hover {
-            border-color: rgba(5, 150, 105, 0.4);
-            background: rgba(30, 41, 59, 0.85);
-            box-shadow: 0 20px 50px rgba(4, 120, 87, 0.15);
-        }
-
-        .light .glass:hover {
-            background: #ffffff;
-            border-color: #D1CDC2;
-            box-shadow: 0 12px 30px rgba(6, 78, 59, 0.08);
-        }
-
-        .scroll-container {
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
-
-        ::-webkit-scrollbar {
-          width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-          background: var(--bg-start);
-        }
-        ::-webkit-scrollbar-thumb {
-          background: var(--surface-2);
-          border-radius: 10px;
-        }
-
-        .spinner {
-          border: 3px solid rgba(255, 255, 255, 0.2);
-          border-top-color: #fff;
-          border-radius: 50%;
-          width: 24px;
-          height: 24px;
-          animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-    </style>
-    
-    <script>
-      (function() {
+  <script>
+      (function () {
         const favicon = document.getElementById('favicon');
         if (!favicon) return;
 
@@ -199,9 +211,9 @@
         // Set initial state
         updateFavicon();
       })();
-    </script>
-    
-<script type="importmap">
+  </script>
+
+  <script type="importmap">
 {
   "imports": {
     "react/": "https://esm.sh/react@^19.2.4/",
@@ -212,10 +224,12 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
 </head>
+
 <body class="font-sans">
-    <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

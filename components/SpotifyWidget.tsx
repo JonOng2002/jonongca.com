@@ -64,25 +64,25 @@ export const SpotifyWidget: React.FC = () => {
   const isCurrent = songType === 'currently-playing';
 
   return (
-    <div 
+    <div
       onClick={openSpotify}
-      className={`relative rounded-[2rem] overflow-hidden transition-all duration-300 hover:scale-[1.03] cursor-pointer group glass h-full
-        ${isCurrent ? 'hover:ring-2 hover:ring-green-500' : 'hover:ring-2 hover:ring-blue-500'}
-        ${loading ? 'bg-forest/5 dark:bg-slate-800' : ''}
+      className={`relative rounded-[2rem] overflow-hidden transition-all duration-300 hover:scale-[1.03] cursor-pointer group glass h-full bg-white dark:bg-[#0c1a10] shadow-sm hover:shadow-xl min-h-[300px]
+        ${isCurrent ? 'ring-2 ring-transparent hover:ring-green-500' : 'ring-2 ring-transparent hover:ring-blue-500'}
+        ${loading ? 'bg-zinc-100 dark:bg-[#0c1a10]' : ''}
       `}
     >
       {/* Background Layer */}
       {song && (
         <div className="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110">
-          <img 
-            src={song.artistImage || song.albumArt} 
-            alt="Background" 
+          <img
+            src={song.artistImage || song.albumArt}
+            alt="Background"
             className={`w-full h-full object-cover transition-opacity duration-500 ${song.artistImage ? 'opacity-90' : 'opacity-60'}`}
           />
-          <div 
+          <div
             className={`absolute inset-0 transition-all duration-300
-              ${isCurrent 
-                ? 'bg-gradient-to-br from-green-900/40 to-black/80 group-hover:from-green-900/60' 
+              ${isCurrent
+                ? 'bg-gradient-to-br from-green-900/40 to-black/80 group-hover:from-green-900/60'
                 : 'bg-gradient-to-br from-blue-900/60 to-black/90 group-hover:from-blue-900/80'}
             `}
           ></div>
@@ -111,9 +111,9 @@ export const SpotifyWidget: React.FC = () => {
             {/* Song Info */}
             <div className="flex items-center mt-6">
               <div className="relative shrink-0">
-                <img 
-                  src={song.albumArt} 
-                  alt="Album Cover" 
+                <img
+                  src={song.albumArt}
+                  alt="Album Cover"
                   className="w-16 h-16 rounded-xl shadow-2xl border border-white/10"
                 />
                 {isCurrent && (
@@ -125,7 +125,7 @@ export const SpotifyWidget: React.FC = () => {
               <div className="ml-4 overflow-hidden">
                 <p className="font-display font-bold text-white text-md leading-tight truncate mb-0.5">{song.title}</p>
                 <p className="text-xs text-white/70 truncate">{song.artist}</p>
-                <div 
+                <div
                   className={`mt-2 px-2.5 py-1 rounded-lg text-[9px] font-bold inline-flex items-center uppercase tracking-tighter
                     ${isCurrent ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'}
                   `}

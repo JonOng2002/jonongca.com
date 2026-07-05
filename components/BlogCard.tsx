@@ -9,7 +9,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ onClick, imageUrl }) => {
     return (
         <div
             onClick={onClick}
-            className="glass rounded-[2rem] h-full group transition-all duration-500 relative overflow-hidden cursor-pointer bg-white dark:bg-[#0c1a10] flex flex-col justify-end p-6 hover:shadow-xl min-h-[300px]"
+            className="glass rounded-[2rem] h-full group transition-all duration-500 relative overflow-hidden cursor-pointer bg-white dark:bg-obsidian-900 flex flex-col justify-end p-6 hover:shadow-xl min-h-[300px]"
         >
             {/* Background Image / Placeholder */}
             <div className="absolute inset-0 z-0 p-5">

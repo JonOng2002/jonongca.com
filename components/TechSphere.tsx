@@ -6,35 +6,31 @@ import React, { useRef, useEffect } from 'react';
 interface TechIcon {
     name: string;
     color: string;
-    slug?: string;      // SimpleIcons → https://cdn.simpleicons.org/{slug}
-    imageUrl?: string;  // local path or any external URL (takes priority over slug)
+    category: 'data' | 'ml' | 'cloud' | 'db';
+    slug?: string;
+    imageUrl?: string;
 }
 
 const ICONS: TechIcon[] = [
-    // ── Cloud (local PNGs kept for reliability) ──────────────────────────────
-    { name: 'AWS', color: '#FF9900', imageUrl: '/images/tech/aws.png' },
-    { name: 'Azure', color: '#0078D4', imageUrl: '/images/tech/azure.png' },
-    // ── DevOps / Infra ───────────────────────────────────────────────────────
-    { name: 'Docker', color: '#2496ED', slug: 'docker' },
-    { name: 'Terraform', color: '#844FBA', slug: 'terraform' },
-    { name: 'GitHub Actions', color: '#2088FF', slug: 'githubactions' },
-    { name: 'Kubernetes', color: '#326CE5', slug: 'kubernetes' },
-    { name: 'Jenkins', color: '#D24939', slug: 'jenkins' },
-    { name: 'Linux', color: '#FCC624', slug: 'linux' },
-    // ── Languages / Frameworks ───────────────────────────────────────────────
-    { name: 'Python', color: '#3776AB', slug: 'python' },
-    { name: 'TypeScript', color: '#3178C6', slug: 'typescript' },
-    { name: 'React', color: '#61DAFB', slug: 'react' },
-    { name: 'Go', color: '#00ADD8', slug: 'go' },
-    { name: 'Bash', color: '#4EAA25', slug: 'gnubash' },
-    { name: 'Vue', color: '#4FC08D', slug: 'vue.js' },
-    // ── Data ─────────────────────────────────────────────────────────────────
-    { name: 'PostgreSQL', color: '#4169E1', slug: 'postgresql' },
-    { name: 'Llama (Meta)', color: '#0082FB', slug: 'meta' },
+    { name: 'PySpark', color: '#E25A1C', category: 'data', imageUrl: 'https://cdn.simpleicons.org/apachespark/E25A1C' },
+    { name: 'SQL', color: '#336791', category: 'data', slug: 'postgresql' },
+    { name: 'Pandas', color: '#150458', category: 'data', slug: 'pandas' },
+    { name: 'Hadoop', color: '#66CCFF', category: 'data', slug: 'apachehadoop' },
+    { name: 'Azure ML', color: '#0078D4', category: 'ml', slug: 'microsoftazure' },
+    { name: 'pytest', color: '#0A9EDC', category: 'ml', slug: 'pytest' },
+    { name: 'Prefect', color: '#070E10', category: 'ml', slug: 'prefect' },
+    { name: 'Azure', color: '#0078D4', category: 'cloud', imageUrl: '/images/tech/azure.png' },
+    { name: 'AWS', color: '#FF9900', category: 'cloud', imageUrl: '/images/tech/aws.png' },
+    { name: 'Docker', color: '#2496ED', category: 'cloud', slug: 'docker' },
+    { name: 'Terraform', color: '#844FBA', category: 'cloud', slug: 'terraform' },
+    { name: 'GitHub Actions', color: '#2088FF', category: 'cloud', slug: 'githubactions' },
+    { name: 'MongoDB', color: '#47A248', category: 'db', slug: 'mongodb' },
+    { name: 'PostgreSQL', color: '#4169E1', category: 'db', slug: 'postgresql' },
+    { name: 'DynamoDB', color: '#4053D6', category: 'db', slug: 'amazondynamodb' },
+    { name: 'Firestore', color: '#FFCA28', category: 'db', slug: 'firebase' },
 ];
 
-// ── Fibonacci sphere distribution ────────────────────────────────────────────
-function spherePoints(n: number) {
+export function spherePoints(n: number) {
     const pts: [number, number, number][] = [];
     const phi = Math.PI * (3 - Math.sqrt(5)); // golden angle
     for (let i = 0; i < n; i++) {
@@ -132,8 +128,9 @@ export const TechSphere: React.FC = () => {
     }, []);
 
     return (
-        <div className="glass rounded-[2rem] p-6 flex flex-col h-full relative overflow-hidden bg-white dark:bg-[#0c1a10] shadow-sm hover:shadow-xl transition-all duration-300">
+        <div className="glass rounded-[2rem] p-6 flex flex-col h-full relative overflow-hidden bg-white dark:bg-obsidian-900 shadow-sm hover:shadow-xl transition-all duration-300">
 
+            <p className="font-serif italic text-2xl text-forest-accent mb-3 shrink-0">My tech stack</p>
 
             {/* Sphere stage — flex-1 so it fills the remaining card height */}
             <div
@@ -164,11 +161,6 @@ export const TechSphere: React.FC = () => {
                     </div>
                 ))}
             </div>
-
-            {/* Hint */}
-            <p className="text-center text-[9px] text-emerald-700/25 dark:text-emerald-600/25 font-mono uppercase tracking-widest shrink-0 relative z-30">
-                hover to rotate
-            </p>
         </div>
     );
 };

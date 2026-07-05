@@ -19,7 +19,7 @@ export const TechCarousel: React.FC = () => {
   const displayList = [...TECH_LIST, ...TECH_LIST];
 
   return (
-    <div className="glass rounded-[2rem] p-6 flex flex-col h-full relative overflow-hidden group bg-white dark:bg-[#0c1a10] shadow-sm hover:shadow-xl transition-all duration-300">
+    <div className="glass rounded-[2rem] p-6 flex flex-col h-full relative overflow-hidden group bg-white dark:bg-obsidian-900 shadow-sm hover:shadow-xl transition-all duration-300">
       <div className="flex items-center justify-between mb-4 relative z-10">
         <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-gray-500">Technology Stack</h4>
         <div className="h-1 w-6 bg-[color:var(--primary)]/20 rounded-full group-hover:bg-[color:var(--primary)] transition-colors"></div>

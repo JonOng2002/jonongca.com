@@ -2,7 +2,7 @@ import React from 'react';
 
 export const CatsCard: React.FC = () => {
   return (
-    <div className="glass rounded-[2rem] h-full group transition-all duration-500 relative overflow-hidden bg-white dark:bg-[#0c1a10] flex flex-col justify-end p-6 hover:shadow-xl min-h-[300px]">
+    <div className="glass rounded-[2rem] h-full group transition-all duration-500 relative overflow-hidden bg-white dark:bg-obsidian-900 flex flex-col justify-end p-6 hover:shadow-xl min-h-[300px]">
 
       {/* Floating slanted photo frame — straightens on hover like Eric Wu's dog card */}
       <div className="absolute inset-0 z-0 p-5 flex items-center justify-center">

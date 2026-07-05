@@ -21,19 +21,19 @@ export const ProjectMiniCard: React.FC<ProjectMiniProps> = ({
   showProjectTag = true,
   badgeText = "Project"
 }) => {
-  const neutralBadge = "inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase border transition-all bg-forest/5 dark:bg-[#0c1a10]/30 border-forest/10 dark:border-emerald-500/10 text-forest/50 dark:text-emerald-100/40";
+  const neutralBadge = "inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase border transition-all bg-forest/5 dark:bg-obsidian-900/30 border-forest/10 dark:border-accent-500/10 text-forest/50 dark:text-accent-100/40";
 
   // If there is no image, fallback to the old text-centric layout
   if (!workflowUrl) {
     return (
       <div
-        className="glass rounded-3xl p-8 flex flex-col h-full group hover:translate-y-[-4px] transition-all duration-300 relative overflow-hidden cursor-pointer bg-gradient-to-br from-white to-beige/30 dark:from-slate-900 dark:to-emerald-950/20"
+        className="glass rounded-3xl p-8 flex flex-col h-full group hover:translate-y-[-4px] transition-all duration-300 relative overflow-hidden cursor-pointer bg-gradient-to-br from-white to-beige/30 dark:from-obsidian-900 dark:to-accent-950/20"
         onClick={onClick}
       >
         {/* Label - appearing only on hover, slicker style */}
         <div className="absolute top-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 text-white shadow-sm font-display">
           <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(124,58,237,0.8)]"></div>
             <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
               {badgeText}
             </span>
@@ -41,17 +41,17 @@ export const ProjectMiniCard: React.FC<ProjectMiniProps> = ({
         </div>
 
         <div className="mb-4 pr-8">
-          <h4 className="font-bold text-forest dark:text-white text-md group-hover:text-forest-accent dark:group-hover:text-emerald-400 transition-colors font-display">
+          <h4 className="font-bold text-forest dark:text-white text-md group-hover:text-forest-accent dark:group-hover:text-accent-400 transition-colors font-display">
             {title}
           </h4>
           {subtitle && (
-            <p className="text-[10px] text-forest-accent/70 dark:text-emerald-400/70 font-bold uppercase tracking-wider font-display">
+            <p className="text-[10px] text-forest-accent/70 dark:text-accent-400/70 font-bold uppercase tracking-wider font-display">
               {subtitle}
             </p>
           )}
         </div>
 
-        <p className="text-forest/60 dark:text-emerald-100/50 text-xs leading-relaxed mb-6 flex-grow">
+        <p className="text-forest/60 dark:text-accent-100/50 text-xs leading-relaxed mb-6 flex-grow">
           {description}
         </p>
 
@@ -63,7 +63,7 @@ export const ProjectMiniCard: React.FC<ProjectMiniProps> = ({
               </span>
             ))}
           </div>
-          <div className="text-forest-accent dark:text-emerald-400 opacity-0 group-hover:opacity-100 transition-all">
+          <div className="text-forest-accent dark:text-accent-400 opacity-0 group-hover:opacity-100 transition-all">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </div>
         </div>
@@ -74,7 +74,7 @@ export const ProjectMiniCard: React.FC<ProjectMiniProps> = ({
   // New Image-Driven Eric Wu Style Layout
   return (
     <div
-      className="glass rounded-[2rem] h-full group transition-all duration-500 relative overflow-hidden cursor-pointer bg-white dark:bg-[#0c1a10] flex flex-col justify-end p-6 hover:shadow-xl min-h-[300px]"
+      className="glass rounded-[2rem] h-full group transition-all duration-500 relative overflow-hidden cursor-pointer bg-white dark:bg-obsidian-900 flex flex-col justify-end p-6 hover:shadow-xl min-h-[300px]"
       onClick={onClick}
     >
       {/* Background/Slanted Image */}

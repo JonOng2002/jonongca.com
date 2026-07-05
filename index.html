@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jonathan Ong | DevOps & AI Engineer</title>
+  <title>Jonathan Ong | Data Engineering, AI & Cloud</title>
+  <meta name="description" content="Data Engineering, AI Engineering, MLOps and Cloud Infrastructure. AI & Data Engineering Intern at Inland Revenue Authority of Singapore.">
+  <meta property="og:title" content="Jonathan Ong | Data Engineering, AI & Cloud">
+  <meta property="og:description" content="Data Engineering, AI Engineering, MLOps and Cloud Infrastructure. AI & Data Engineering Intern at Inland Revenue Authority of Singapore.">
+  <meta property="og:url" content="https://jonongca.com">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://jonongca.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jonathan Ong | Data Engineering, AI & Cloud">
+  <meta name="twitter:description" content="Data Engineering, AI Engineering, MLOps and Cloud Infrastructure. AI & Data Engineering Intern at Inland Revenue Authority of Singapore.">
 
   <!-- Dynamic Favicon -->
   <link id="favicon" rel="icon" href="/favicon-96x96.png" type="image/png">
@@ -14,34 +23,38 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            ivory: '#F9F8F3',
-            beige: '#F2EFE9',
+            warm: {
+              50: '#F9F7F1',
+              100: '#F4F2EA',
+              200: '#ECE8DD',
+            },
             forest: {
-              DEFAULT: '#064E3B',
-              accent: '#059669',
-              muted: '#E6EDE9',
+              DEFAULT: '#0E2418',
+              text: '#1A2A21',
+              accent: '#0FA36B',
+              muted: '#E8F0EB',
             },
-            primary: {
-              DEFAULT: 'var(--primary)',
-              soft: 'var(--primary-soft)',
-              hover: 'var(--primary-hover)',
+            card: {
+              cream: '#FDFCF9',
+              mint: '#F2F8F4',
+              white: '#FFFFFF',
             },
-            slate: {
-              850: '#0d1f14',
+            accent: {
+              400: '#10B981',
+              500: '#0FA36B',
+              600: '#059669',
             },
-            emerald: {
-              950: '#051f0e',
-            }
           },
           fontFamily: {
-            display: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
-            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+            display: ['Manrope', 'system-ui', 'sans-serif'],
+            sans: ['Manrope', 'system-ui', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
             mono: ['"SF Mono"', '"Monaco"', '"Menlo"', '"Courier New"', 'monospace'],
           },
           animation: {
@@ -76,75 +89,56 @@
   </script>
   <style>
     :root {
-      /* Dark variables - deep forest green base */
-      --bg-start: #071510;
-      --bg-end: #0a1f12;
-      --surface: rgba(12, 30, 18, 0.75);
-      --surface-2: #047857;
-      --border: rgba(5, 150, 105, 0.15);
-      --text: #f1f5f9;
-      --muted: #d1fae5;
-      --primary: #059669;
-      /* Standardized Forest/Emerald Green */
-      --primary-soft: rgba(5, 150, 105, 0.12);
-      --primary-hover: #10b981;
-      --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-    }
-
-    .light {
-      /* Warm Ivory & Forest Palette */
-      --bg-start: #F9F8F3;
-      --bg-end: #F2EFE9;
-      --surface: rgba(255, 255, 255, 0.9);
-      --surface-2: #F2EFE9;
-      --border: #E5E1D8;
-      --text: #064E3B;
-      --muted: #4B5563;
-      --primary: #064E3B;
-      --primary-soft: #E6EDE9;
-      --primary-hover: #059669;
-      --shadow: 0 4px 20px rgba(6, 78, 59, 0.04);
+      --bg: #F7F5EF;
+      --card-cream: #FDFCF9;
+      --card-mint: #F2F8F4;
+      --text: #0E2418;
+      --muted: #5A6B61;
+      --accent: #0FA36B;
+      --accent-soft: rgba(15, 163, 107, 0.08);
+      --border: rgba(14, 36, 24, 0.06);
+      --border-hover: rgba(14, 36, 24, 0.12);
+      --shadow: 0 2px 12px rgba(14, 36, 24, 0.03);
+      --shadow-hover: 0 4px 24px rgba(14, 36, 24, 0.05);
     }
 
     body {
-      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
-      background-attachment: fixed;
+      background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      transition: background 0.5s ease;
+      -webkit-font-smoothing: antialiased;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    .font-display {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Manrope', system-ui, sans-serif;
+    }
+
+    .font-serif {
+      font-family: 'Instrument Serif', Georgia, serif;
     }
 
     .glass {
-      background: var(--surface);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: var(--card-cream);
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
     .glass:hover {
-      transform: translateY(-2px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-hover);
     }
 
-    .dark .glass:hover {
-      border-color: rgba(5, 150, 105, 0.4);
-      background: rgba(12, 30, 18, 0.9);
-      box-shadow: 0 20px 50px rgba(4, 120, 87, 0.15);
+    .glass-mint {
+      background: var(--card-mint);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
-    .light .glass:hover {
-      background: #ffffff;
-      border-color: #D1CDC2;
-      box-shadow: 0 12px 30px rgba(6, 78, 59, 0.08);
+    .glass-mint:hover {
+      border-color: rgba(15, 163, 107, 0.15);
+      box-shadow: var(--shadow-hover);
     }
 
     .scroll-container {
@@ -152,122 +146,50 @@
       -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     }
 
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(14, 36, 24, 0.12); border-radius: 10px; }
 
-    ::-webkit-scrollbar-track {
-      background: var(--bg-start);
-    }
+    /* Custom cursor */
+    .custom-cursor { width: 24px; height: 24px; border: 2px solid rgba(15, 163, 107, 0.4); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: width 0.2s, height 0.2s, border-color 0.2s, transform 0.1s; transform: translate(-50%, -50%); }
+    .custom-cursor.hover { width: 40px; height: 40px; border-color: rgba(15, 163, 107, 0.6); }
+    @media (max-width: 768px), (pointer: coarse) { .custom-cursor { display: none; } }
 
-    ::-webkit-scrollbar-thumb {
-      background: var(--surface-2);
-      border-radius: 10px;
-    }
+    /* Scroll reveal */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-reveal { opacity: 0; }
+    .animate-reveal.visible { animation: fadeUp 0.6s ease forwards; }
 
-    .spinner {
-      border: 3px solid rgba(255, 255, 255, 0.2);
-      border-top-color: #fff;
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      animation: spin 1s linear infinite;
-    }
+    .react-grid-layout { position: relative; transition: height 200ms ease; }
+    .react-grid-item { transition: all 200ms ease; transition-property: left, top; }
+    .react-grid-item.cssTransforms { transition-property: transform; }
+    .react-grid-item.resizing { z-index: 1000; will-change: width, height; }
+    .react-grid-item.react-draggable-dragging { transition: none !important; z-index: 3000 !important; }
+    .react-grid-item.dropping { visibility: hidden; }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* Grid System Core */
-    .react-grid-layout {
-      position: relative;
-      transition: height 200ms ease;
-    }
-
-    .react-grid-item {
-      transition: all 200ms ease;
-      transition-property: left, top;
-    }
-
-    .react-grid-item.cssTransforms {
-      transition-property: transform;
-    }
-
-    .react-grid-item.resizing {
-      z-index: 1000;
-      will-change: width, height;
-    }
-
-    .react-grid-item.react-draggable-dragging {
-      transition: none !important;
-      z-index: 3000 !important;
-      will-change: left, top, transform;
-    }
-
-    .react-grid-item.dropping {
-      visibility: hidden;
-    }
-
-    /* Grid Placeholder (Drop Target) */
     .react-grid-placeholder {
-      background: rgba(16, 185, 129, 0.05) !important;
-      border: 1.5px dashed rgba(16, 185, 129, 0.25) !important;
-      border-radius: 20px !important;
+      background: rgba(15, 163, 107, 0.04) !important;
+      border: 1.5px dashed rgba(15, 163, 107, 0.12) !important;
+      border-radius: 24px !important;
       opacity: 1 !important;
       z-index: 5 !important;
       transition: all 450ms cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
 
-    .dark .react-grid-placeholder {
-      background: rgba(6, 78, 59, 0.1) !important;
-      border-color: rgba(16, 185, 129, 0.2) !important;
-    }
-
-    /* Eric Wu Smoothness */
     .react-grid-item {
       transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
         width 450ms cubic-bezier(0.16, 1, 0.3, 1),
         height 450ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .layout-initializing .react-grid-item {
-      transition: none !important;
-    }
-
-    /* Hide native handles, we have our own glass cards */
-    .react-resizable-handle {
-      display: none !important;
-    }
+    .layout-initializing .react-grid-item { transition: none !important; }
+    .react-resizable-handle { display: none !important; }
   </style>
 
   <script>
       (function () {
-        const favicon = document.getElementById('favicon');
-        if (!favicon) return;
-
-        const lightIcon = '/favicon-light.png';
-        const darkIcon = '/favicon-96x96.png';
-
-        const updateFavicon = () => {
-          const isDark = document.documentElement.classList.contains('dark');
-          favicon.setAttribute('href', isDark ? darkIcon : lightIcon);
-        };
-
-        const observer = new MutationObserver((mutations) => {
-          for (const mutation of mutations) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-              updateFavicon();
-              break;
-            }
-          }
-        });
-
-        observer.observe(document.documentElement, { attributes: true });
-
-        // Set initial state
-        updateFavicon();
+        var favicon = document.getElementById('favicon');
+        if (favicon) favicon.setAttribute('href', '/favicon-light.png');
       })();
   </script>
 
@@ -287,6 +209,25 @@
 <body class="font-sans">
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
+  <script>
+    (function () {
+      if (window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(pointer: coarse)').matches) return;
+      var c = document.createElement('div'); c.className = 'custom-cursor'; document.body.appendChild(c);
+      document.addEventListener('mousemove', function(e) { c.style.left = e.clientX + 'px'; c.style.top = e.clientY + 'px'; });
+      document.addEventListener('mouseover', function(e) { var t = e.target; if (t.closest('a, button, .cursor-hover')) c.classList.add('hover'); else c.classList.remove('hover'); });
+      document.addEventListener('mouseout', function() { c.classList.remove('hover'); });
+    })();
+  </script>
+  <script>
+    (function () {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.15 });
+      setTimeout(function() {
+        document.querySelectorAll('.animate-reveal, .react-grid-item').forEach(function(el) { observer.observe(el); });
+      }, 200);
+    })();
+  </script>
 </body>
 
 </html>

@@ -15,10 +15,10 @@ interface BlogModalProps {
 
 const BLOG_POSTS: BlogPost[] = [
     {
-        title: "My first Blog",
-        date: "Mar 08 2026",
-        imageUrl: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=800&auto=format&fit=crop",
-        url: "https://notion.so" // USER: Replace with your Notion post link
+        title: "Apache PySpark Certification",
+        date: "Jul 2026",
+        imageUrl: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=800&auto=format&fit=crop",
+        url: "https://jonongca.notion.site/apache-certification"
     }
 ];
 
@@ -48,9 +48,9 @@ export const BlogModal: React.FC<BlogModalProps> = ({ isOpen, onClose }) => {
                         </div>
                         <h2 className="text-4xl font-extrabold text-white font-display tracking-tight">Writing & Thoughts</h2>
                         <div className="flex flex-col items-center gap-2">
-                            <p className="text-emerald-400/60 text-[11px] font-bold uppercase tracking-widest">Personal Blog • Notion Powered</p>
-                            <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[9px] font-bold uppercase tracking-widest animate-pulse">
-                                Work in Progress
+                            <p className="text-accent-400/60 text-[11px] font-bold uppercase tracking-widest">Personal Blog • Notion Powered</p>
+                            <span className="px-3 py-1 rounded-full bg-accent-500/10 border border-accent-500/20 text-accent-400 text-[9px] font-bold uppercase tracking-widest">
+                                Updated Regularly
                             </span>
                         </div>
                     </header>
@@ -65,7 +65,7 @@ export const BlogModal: React.FC<BlogModalProps> = ({ isOpen, onClose }) => {
                                 rel="noopener noreferrer"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="group flex flex-col md:flex-row gap-6 p-6 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/[0.08] hover:border-emerald-500/30 transition-all duration-500"
+                                className="group flex flex-col md:flex-row gap-6 p-6 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/[0.08] hover:border-accent-500/30 transition-all duration-500"
                             >
                                 <div className="w-full md:w-48 aspect-square rounded-[2rem] overflow-hidden bg-zinc-900 shrink-0">
                                     <img
@@ -75,8 +75,8 @@ export const BlogModal: React.FC<BlogModalProps> = ({ isOpen, onClose }) => {
                                     />
                                 </div>
                                 <div className="flex flex-col justify-center gap-2">
-                                    <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-[0.2em] font-display">Latest Chapter</span>
-                                    <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors font-display tracking-tight leading-tight">
+                                    <span className="text-[10px] text-accent-400 font-bold uppercase tracking-[0.2em] font-display">Latest Chapter</span>
+                                    <h3 className="text-2xl font-bold text-white group-hover:text-accent-400 transition-colors font-display tracking-tight leading-tight">
                                         {post.title}
                                     </h3>
                                     <div className="flex items-center gap-3 mt-2">
@@ -96,15 +96,15 @@ export const BlogModal: React.FC<BlogModalProps> = ({ isOpen, onClose }) => {
 
                         {/* General Notion Workspace Link */}
                         <a
-                            href="https://notion.so" // USER: Replace with your main Notion Workspace/Blog link
+                            href="https://jonongca.notion.site/apache-certification"
                             target="_blank"
-                            className="group p-8 rounded-[2.5rem] bg-emerald-500/10 border border-emerald-500/20 hover:bg-emerald-500/20 transition-all duration-300 flex items-center justify-between"
+                            className="group p-8 rounded-[2.5rem] bg-accent-500/10 border border-accent-500/20 hover:bg-accent-500/20 transition-all duration-300 flex items-center justify-between"
                         >
                             <div>
                                 <h4 className="text-white font-bold font-display text-lg mb-1">Visit My Full Notion</h4>
-                                <p className="text-emerald-400/60 text-xs font-medium">Read all my sharings and tech notes</p>
+                                <p className="text-accent-400/60 text-xs font-medium">Read all my sharings and tech notes</p>
                             </div>
-                            <div className="w-11 h-11 rounded-full bg-emerald-500 text-white flex items-center justify-center -rotate-45 group-hover:rotate-0 transition-all duration-500 shadow-[0_0_20px_rgba(16,185,129,0.3)] group-hover:shadow-[0_0_25px_rgba(16,185,129,0.5)]">
+                            <div className="w-11 h-11 rounded-full bg-accent-500 text-white flex items-center justify-center -rotate-45 group-hover:rotate-0 transition-all duration-500 shadow-[0_0_20px_rgba(124,58,237,0.3)] group-hover:shadow-[0_0_25px_rgba(124,58,237,0.5)]">
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </div>
                         </a>

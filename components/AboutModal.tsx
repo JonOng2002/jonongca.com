@@ -1,127 +1,103 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { LifeWidgetCard } from './LifeWidgetCard';
+import { lifeWidgets } from '../src/data/lifeWidgets';
 
-interface AboutModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-}
+export const AboutSection: React.FC = () => {
+  return (
+    <div className="w-full max-w-6xl mx-auto px-4 md:px-0">
+      <div className="mb-16">
+        <div className="w-16 h-16 rounded-2xl bg-forest/5 flex items-center justify-center border border-forest/10 mb-6">
+          <svg className="w-8 h-8 text-forest-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" /></svg>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-forest font-display tracking-tight">Hello! I'm<span className="inline-block w-3" /> <span className="font-serif italic text-forest-accent">Jonathan</span></h2>
+        <p className="text-forest/50 text-[11px] font-bold uppercase tracking-widest mt-4 leading-loose">
+          SMU Information Systems · Data Engineering, AI & Cloud
+        </p>
+      </div>
 
-export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
-    return (
-        <AnimatePresence>
-            {isOpen && (
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-[150] bg-black/95 flex flex-col items-center overflow-y-auto px-4 py-12 md:py-20"
-                >
-                    {/* Close Button */}
-                    <button
-                        onClick={onClose}
-                        className="fixed top-8 right-8 z-[160] w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all transform active:scale-90 border border-white/10"
-                    >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+        <div className="lg:col-span-2 space-y-10 text-forest/70 text-base leading-relaxed">
+          <section>
+            <h3 className="font-serif italic text-xl text-forest-accent mb-5">My journey</h3>
+            <p className="mb-4">
+              I'm an Information Systems undergraduate at SMU focused on <span className="text-forest font-semibold">Data Engineering</span>, <span className="text-forest font-semibold">AI Engineering</span>, <span className="text-forest font-semibold">MLOps</span> and <span className="text-forest font-semibold">Cloud Infrastructure</span>.
+            </p>
+            <p className="mb-4">
+              Currently an <span className="text-forest font-semibold">AI & Data Engineering Intern at Inland Revenue Authority of Singapore</span>, working on modernising legacy data and ML workflows through SAS-to-PySpark ETL migration, large-scale data validation, internal AI assistant improvements, Azure ML API refactoring and endpoint testing.
+            </p>
+            <p>
+              I enjoy building reliable systems across data, AI and cloud, especially when the work involves making messy processes more structured, testable and production-ready.
+            </p>
+          </section>
 
-                    <header className="text-center mb-16 space-y-4 max-w-2xl px-6">
-                        <div className="w-20 h-20 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-6">
-                            <span className="text-3xl">👋</span>
-                        </div>
-                        <h2 className="text-4xl font-extrabold text-white font-display tracking-tight">Hello! I'm Jonathan</h2>
-                        <p className="text-emerald-400/60 text-[11px] font-bold uppercase tracking-widest leading-loose">
-                            SMU Information Systems Student • Cloud Infrastructure & DevOps Enthusiast
-                        </p>
-                    </header>
+          <section>
+            <h3 className="font-serif italic text-xl text-forest-accent mb-5">Beyond work</h3>
+            <p>
+              This portfolio is not only for interviews or job applications. It is also a personal space where people can get to know me better through my learning notes, monthly engineering reflections, projects, interests and life outside of tech.
+            </p>
+          </section>
 
-                    <div className="max-w-2xl w-full space-y-12">
-                        {/* Summary Section */}
-                        <section className="space-y-6 text-zinc-400 text-lg leading-relaxed">
-                            <p>
-                                I'm passionate about <span className="text-white font-semibold underline decoration-emerald-500/30 decoration-2 underline-offset-4">cloud infrastructure</span> and <span className="text-white font-semibold underline decoration-emerald-500/30 decoration-2 underline-offset-4">DevOps automation</span>. Currently, I'm at <span className="text-emerald-400">YTL PowerSeraya</span>, where I focus on engineering and implementing CI/CD pipelines for IaaS/PaaS applications, aiming to improve deployment efficiency and system reliability.
-                            </p>
-                        </section>
+          <section>
+            <h3 className="font-serif italic text-xl text-forest-accent mb-5">Experience Timeline</h3>
+            <div className="space-y-6 border-l border-forest/10 pl-6">
+              <div>
+                <span className="text-[10px] font-mono text-forest/40 uppercase">Current</span>
+                <h4 className="text-forest font-bold mt-1">Inland Revenue Authority of Singapore</h4>
+                <p className="text-sm text-forest/50">AI & Data Engineering Intern</p>
+              </div>
+              <div>
+                <span className="text-[10px] font-mono text-forest/40 uppercase">Jan — Apr 2026</span>
+                <h4 className="text-forest font-bold mt-1">YTL PowerSeraya</h4>
+                <p className="text-sm text-forest/50">DevOps Engineer Intern</p>
+              </div>
+              <div>
+                <span className="text-[10px] font-mono text-forest/40 uppercase">May — Aug 2025</span>
+                <h4 className="text-forest font-bold mt-1">Global Enterprise Mobility</h4>
+                <p className="text-sm text-forest/50">Cloud Engineer Intern</p>
+              </div>
+            </div>
+          </section>
+        </div>
 
-                        {/* Professional Timeline */}
-                        <section className="space-y-8">
-                            <h3 className="text-[11px] font-bold text-white uppercase tracking-[0.2em] mb-6">Experience Highlights</h3>
+        <div className="space-y-8">
+          <div>
+            <h3 className="font-serif italic text-xl text-forest-accent mb-4">Life</h3>
+            <div className="grid grid-cols-2 gap-3">
+              {lifeWidgets.map(w => (
+                <LifeWidgetCard key={w.id} widget={w} />
+              ))}
+            </div>
+          </div>
 
-                            <div className="space-y-8 border-l border-white/10 ml-4 pl-8 pt-2">
-                                {/* YTL */}
-                                <div className="relative">
-                                    <div className="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] border-4 border-black"></div>
-                                    <div className="space-y-2">
-                                        <span className="text-[10px] font-mono text-emerald-400/60 uppercase">Jan 2026 — Present</span>
-                                        <h4 className="text-xl font-bold text-white">YTL PowerSeraya</h4>
-                                        <p className="text-zinc-400">Engineering CI/CD pipelines for IaaS/PaaS applications across 11 Azure apps. Standardizing App Service patterns and implementing self-hosted VM agents.</p>
-                                    </div>
-                                </div>
+          <div className="bg-white/80 backdrop-blur-sm border border-forest/10 rounded-2xl p-6 space-y-4">
+            <h3 className="font-serif italic text-xl text-forest-accent">Connect</h3>
+            <div className="flex flex-wrap gap-2">
+              <a href="/resume.pdf" target="_blank" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-forest text-white text-[11px] font-bold uppercase tracking-wider hover:bg-forest-accent transition-all">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                Resume
+              </a>
+              <a href="https://github.com/JonOng2002" target="_blank" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-forest/5 text-forest text-[11px] font-bold uppercase tracking-wider hover:bg-forest/10 transition-all border border-forest/10">
+                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
+                GitHub
+              </a>
+              <a href="https://linkedin.com/in/jonathan-ong-66502a2b8" target="_blank" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-forest/5 text-forest text-[11px] font-bold uppercase tracking-wider hover:bg-forest/10 transition-all border border-forest/10">
+                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                LinkedIn
+              </a>
+              <a href="mailto:jonongca@gmail.com" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-forest/5 text-forest text-[11px] font-bold uppercase tracking-wider hover:bg-forest/10 transition-all border border-forest/10">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                                {/* GEM */}
-                                <div className="relative">
-                                    <div className="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-emerald-500/30 border-4 border-black"></div>
-                                    <div className="space-y-2">
-                                        <span className="text-[10px] font-mono text-emerald-400/60 uppercase">May 2025 — Aug 2025</span>
-                                        <h4 className="text-xl font-bold text-white">Global Enterprise Mobility</h4>
-                                        <p className="text-zinc-400">Designed AWS infrastructure (VPC/EC2/RDS/S3) using Terraform. Automated GitHub Actions pipelines, achieving 70% faster deployments.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* Tech Stack Grid */}
-                        <section className="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 space-y-8">
-                            <h3 className="text-[11px] font-bold text-emerald-400 uppercase tracking-[0.2em]">Core Specialties</h3>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                                <div className="space-y-1">
-                                    <p className="text-white font-bold text-xs uppercase">Cloud</p>
-                                    <p className="text-zinc-500 text-[10px] leading-tight">AWS, Azure, Terraform</p>
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="text-white font-bold text-xs uppercase">CI/CD</p>
-                                    <p className="text-zinc-500 text-[10px] leading-tight">GH Actions, Jenkins, YAML</p>
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="text-white font-bold text-xs uppercase">Data</p>
-                                    <p className="text-zinc-500 text-[10px] leading-tight">DynamoDB, Power BI, Python</p>
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="text-white font-bold text-xs uppercase">Monitoring</p>
-                                    <p className="text-zinc-500 text-[10px] leading-tight">CloudWatch, Alerting</p>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* Personal Section */}
-                        <section className="p-8 rounded-[2.5rem] bg-emerald-500/5 border border-emerald-500/10 flex flex-col md:flex-row gap-8 items-center justify-between">
-                            <div className="space-y-2">
-                                <h4 className="text-white font-bold text-lg">Beyond the Terminal</h4>
-                                <p className="text-zinc-400 text-sm leading-relaxed">
-                                    In my free time, I'm an avid gamer. You'll likely find me in the convergence, strategically building teams in <span className="text-white font-semibold">TFT (Teamfight Tactics)</span> — my favorite game!
-                                </p>
-                            </div>
-                            <div className="shrink-0 w-24 h-24 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-3xl">
-                                🎮
-                            </div>
-                        </section>
-
-                        {/* CTA */}
-                        <div className="flex flex-wrap justify-center gap-4 py-8">
-                            <a href="#" className="px-8 py-3 rounded-2xl bg-emerald-500 text-white font-bold text-sm hover:scale-105 transition-all">Resume PDF</a>
-                            <a href="https://github.com/JonOng2002" target="_blank" className="px-8 py-3 rounded-2xl bg-white/5 text-white font-bold text-sm border border-white/10 hover:bg-white/10 transition-all">GitHub</a>
-                            <a href="https://linkedin.com" target="_blank" className="px-8 py-3 rounded-2xl bg-white/5 text-white font-bold text-sm border border-white/10 hover:bg-white/10 transition-all">LinkedIn</a>
-                        </div>
-                    </div>
-
-                    <footer className="mt-12 text-center pb-20">
-                        <p className="text-white/20 text-[10px] font-mono uppercase tracking-widest">
-                            Stay Hungry, Stay Humble
-                        </p>
-                    </footer>
-                </motion.div>
-            )}
-        </AnimatePresence>
-    );
+      <footer className="mt-24 text-center pb-12">
+        <p className="text-forest/20 text-[10px] font-mono uppercase tracking-widest">
+          Stay curious, keep building
+        </p>
+      </footer>
+    </div>
+  );
 };

@@ -36,8 +36,8 @@ export const SkillsCard: React.FC = () => {
         <SkillGroup
           title="Engineering Tooling"
           skills={['Docker', 'Jenkins', 'GitHub Actions', 'CI/CD', 'Bash']}
-          color="text-emerald-600 dark:text-emerald-400"
-          dotColor="bg-emerald-500"
+          color="text-emerald-600 dark:text-accent-400"
+          dotColor="bg-emerald-500 dark:bg-accent-500"
         />
         <SkillGroup
           title="Languages"

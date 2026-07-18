@@ -9,6 +9,7 @@ dist
 
 # Portfolio reference screenshots (development artifacts)
 docs/references/
+docs/research/image/
 docs/plans/image/
 
 # environment variables

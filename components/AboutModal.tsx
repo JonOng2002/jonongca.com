@@ -6,13 +6,21 @@ export const AboutSection: React.FC = () => {
   return (
     <div className="w-full max-w-6xl mx-auto px-4 md:px-0">
       <div className="mb-16">
-        <div className="w-16 h-16 rounded-2xl bg-forest/5 flex items-center justify-center border border-forest/10 mb-6">
-          <svg className="w-8 h-8 text-forest-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" /></svg>
+        <div className="flex items-start justify-between gap-6">
+          <div className="min-w-0">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-forest font-display tracking-tight">Hello! I'm<span className="inline-block w-3" /> <span className="font-serif italic text-forest-accent">Jonathan</span></h2>
+            <p className="text-forest/50 text-[11px] font-bold uppercase tracking-widest mt-4 leading-loose">
+              SMU Information Systems · Data Engineering, AI & Cloud
+            </p>
+          </div>
+          <div className="shrink-0">
+            <img
+              src="/images/pfp.jpeg"
+              alt="Jonathan Ong"
+              className="w-20 h-20 md:w-24 md:h-24 rounded-[20px] object-cover"
+            />
+          </div>
         </div>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-forest font-display tracking-tight">Hello! I'm<span className="inline-block w-3" /> <span className="font-serif italic text-forest-accent">Jonathan</span></h2>
-        <p className="text-forest/50 text-[11px] font-bold uppercase tracking-widest mt-4 leading-loose">
-          SMU Information Systems · Data Engineering, AI & Cloud
-        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">

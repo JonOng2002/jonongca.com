@@ -231,6 +231,62 @@ Avoid:
 
 **Risk:** Low (review phase)
 
+### Phase 18 — AI Workflow page refinements + About page profile photo
+
+**Objective:** Reduce text on the AI Workflow page, reposition the workflow diagram, rename sections for clarity, and add the personal photo to the About page heading.
+
+**Files:** `components/AIWorkflowPage.tsx`, `src/data/aiWorkflow.ts`, `components/AboutModal.tsx`
+
+**Tasks:**
+
+#### A. AI Workflow page — text reduction and diagram repositioning
+
+1. **Remove the summary paragraph** from the Hook section. Currently the Hook renders:
+   - `> ` typewriter headline (keep)
+   - `<p>{aiWorkflow.summary}</p>` — the "A multi-agent OpenCode workflow for repository-aware software development with human review at every phase." paragraph (REMOVE this `<p>` element entirely)
+   - The `hook` field in `aiWorkflow.ts` already communicates the full message; the `summary` is redundant alongside it.
+
+2. **Rename "Workflow" section to "Evidence".** The section currently headed `<h3>Workflow</h3>` contains the `<AIWorkflowDiagram />` and optional architecture diagram. Rename the heading to "Evidence" so the visual diagram is framed as proof of the system, not just a description.
+
+3. **Reposition the workflow diagram.** Currently the diagram sits in Section 2 (below the hook). Move it so it appears immediately after the typewriter headline — ideally within or directly below the Hook section — so visitors see the visual flow right after the typing animation finishes. The section structure becomes:
+   - Hook (typewriter `>` + diagram directly below)
+   - Visual Evidence (conditional screenshots — currently Section 3)
+   - Model Routing
+   - Control & Review
+   - Safety
+
+4. **Merge the current "Evidence" section (Section 3, conditional screenshots) into the renamed diagram section.** If the `workflowScreenshot` or other evidence assets exist, they render below the diagram in the same section. This eliminates a standalone "Evidence" heading and keeps all visual proof in one place.
+
+#### B. About page — profile photo beside heading
+
+5. **Remove the generic person SVG icon** from `AboutModal.tsx` (lines 9–11 — the `w-16 h-16 rounded-2xl` box with the SVG). This is the "PFP logo" the user wants removed.
+
+6. **Add the personal photo** (`/images/pfp.jpeg`) beside the "Hello! I'm Jonathan" heading, positioned on the right. Restructure the heading area as a flex row:
+   ```
+   [Hello! I'm Jonathan]    [photo]
+   [SMU Information Systems · Data Engineering, AI & Cloud]
+   ```
+   - Photo: `w-20 h-20` or `w-24 h-24`, `rounded-[20px]` (matching card radius), `object-cover`, placed to the right of the heading text
+   - On mobile: photo stays on the right but smaller (`w-16 h-16`)
+   - Keep the existing heading typography (`text-4xl md:text-5xl font-extrabold` + serif italic "Jonathan")
+   - Keep the subtitle below the heading
+
+**Dependencies:** Phases 13–15 (AI Workflow page structure exists), Phase 12 (About page exists).
+
+**Acceptance criteria:**
+- AI Workflow page Hook section shows only the typewriter headline + diagram (no summary paragraph)
+- "Workflow" section heading renamed to "Evidence"
+- Workflow diagram appears immediately after the typewriter headline (not in a separate section below)
+- Conditional evidence screenshots (if any) render in the same section as the diagram
+- About page: no generic person SVG icon
+- About page: personal photo (`/images/pfp.jpeg`) appears on the right of "Hello! I'm Jonathan"
+- Photo uses `rounded-[20px]`, `object-cover`, responsive sizing
+- `npm run build` passes; `npx tsc --noEmit` errors unchanged
+
+**Validation:** `npm run build`; `npx tsc --noEmit`; visual check at 375/768/1024/1440
+
+**Risk:** Low (content and layout adjustments; no new components)
+
 ## Validation Commands
 
 ```bash
@@ -244,7 +300,7 @@ These items are documented for future work but are **not** part of the current A
 
 | Item | Rationale | Dependencies |
 |---|---|---|
-| Experience page: add IRAS entry | Experience page has 2 entries; About page has 3. Inconsistent. | None |
+| ~~Experience page: add IRAS entry~~ | ✅ **Implemented** — IRAS added to `src/data/experience.ts` with 3 recruiter-facing bullets. | None |
 | Experience page: expand truncated descriptions | Cards show "..." with no way to see full text. | None |
 | Experience page: add visual variety (timeline, current-role differentiation) | Two identical card structures. | None |
 | Life page: add introductory heading | No context for the section. | None |
@@ -258,8 +314,9 @@ These items are documented for future work but are **not** part of the current A
 
 ## Unresolved Decisions
 
-1. **AI Workflow hook headline** — The `hook` field needs exact wording. The plan provides the structure; the user supplies the final one-liner. No fabricated claims.
-2. **Model-selection format** — Table, matrix, or diagram? The plan recommends a compact table/matrix; user may prefer a different format.
-3. **AI Workflow assets** — When will screenshots be captured? Implementation proceeds with empty asset slots (render nothing). Assets can be added later by setting paths in `aiWorkflow.ts`.
-4. **Experience page IRAS entry** — Backlog item. Should IRAS be added with a generic description? Not blocking the AI redesign.
-5. **BlogModal** — Backlog item. Remove or keep for future use? Not blocking the AI redesign.
+1. **AI Workflow hook headline** — ✅ Implemented. Hook reads: "A specialised multi-agent development workflow where AI models handle research, planning, implementation, and verification — and a human makes every final decision."
+2. **Model-selection format** — ✅ Implemented. Terminal-style `$ model → role # rationale` lines (not a table).
+3. **AI Workflow assets** — `workflowScreenshot` is set to `/images/ai-agents/agents-workflow.png`. Other asset fields remain empty (render nothing). Assets can be added later by setting paths in `aiWorkflow.ts`.
+4. ~~Experience page IRAS entry~~ — ✅ Implemented. IRAS added with 3 bullets covering data engineering, AI/vector-search, and MLOps/quality.
+5. **BlogModal** — Backlog item. Remove or keep for future use? Not blocking.
+6. **Phase 18 diagram repositioning** — Should the workflow diagram move into the Hook section (directly below the typewriter), or stay as its own section with a renamed "Evidence" heading? Plan recommends: move into Hook section, remove standalone "Workflow" heading.

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { aiWorkflow } from '../src/data/aiWorkflow';
 import { AIWorkflowDiagram } from './AIWorkflowDiagram';
 import { TypewriterText } from './TypewriterText';
@@ -29,6 +29,7 @@ const EvidenceCard: React.FC<{ src: string; alt: string; caption: string }> = ({
 };
 
 export const AIWorkflowPage: React.FC = () => {
+  const [cascadeStep, setCascadeStep] = useState(0);
   const evidenceItems = [
     { src: aiWorkflow.workflowScreenshot, alt: "Workflow running in terminal", caption: "The workflow executing across multiple agents", section: 'evidence' },
     { src: aiWorkflow.promptExample, alt: "Example agent prompt", caption: "A sample prompt used to instruct an agent", section: 'evidence' },
@@ -36,6 +37,16 @@ export const AIWorkflowPage: React.FC = () => {
   ].filter((item) => item.src);
 
   const showEvidence = evidenceItems.length > 0;
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setCascadeStep(2);
+      return;
+    }
+    const t1 = setTimeout(() => setCascadeStep(1), 400);
+    const t2 = setTimeout(() => setCascadeStep(2), 1200);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
 
   return (
     <div className="max-w-5xl mx-auto relative z-10">
@@ -97,11 +108,17 @@ export const AIWorkflowPage: React.FC = () => {
       <div className="mb-12">
         <h3 className="font-serif italic text-2xl text-forest-accent mb-5">Control &amp; Review</h3>
         <div className="font-mono text-sm leading-relaxed space-y-2 mb-6">
-          <p className="text-forest/30"># Every change is reviewed by a human before it ships</p>
-          <p className="text-forest/30"># Agents propose, plan, implement, verify — humans decide</p>
-          <div className="flex items-baseline gap-2">
-            <span className="text-forest-accent font-semibold shrink-0">$</span>
-            <span className="text-forest/70">This is not an autonomous system</span>
+          <div className={`cascade-line ${cascadeStep >= 1 ? 'revealed' : ''}`}>
+            <p className="text-forest/30"># Every change is reviewed by a human before it ships</p>
+          </div>
+          <div className={`cascade-line ${cascadeStep >= 2 ? 'revealed' : ''}`} style={{ animationDelay: '0.1s' }}>
+            <p className="text-forest/30"># Agents propose, plan, implement, verify — humans decide</p>
+          </div>
+          <div className={`cascade-line ${cascadeStep >= 2 ? 'revealed' : ''}`} style={{ animationDelay: '0.2s' }}>
+            <div className="flex items-baseline gap-2 mt-1">
+              <span className="text-forest-accent font-semibold shrink-0">$</span>
+              <span className="text-forest/70">This is not an autonomous system</span>
+            </div>
           </div>
         </div>
         {aiWorkflow.reviewScreenshot && (

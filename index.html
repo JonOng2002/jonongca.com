@@ -214,15 +214,14 @@
       display: inline-block;
     }
 
-    /* Workflow step stagger */
+    /* Workflow step stagger — plays on mount */
     .workflow-step {
+      animation: workflowFadeUp 0.5s ease forwards;
       opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    .workflow-step.visible {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes workflowFadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Human Review subtle pulse */
@@ -236,6 +235,19 @@
       50% {
         box-shadow: 0 0 0 6px rgba(15, 163, 107, 0.03);
       }
+    }
+
+    /* Cascade reveal */
+    .cascade-line {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    .cascade-line.revealed {
+      animation: cascadeFade 0.5s ease forwards;
+    }
+    @keyframes cascadeFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Agent card hover */
@@ -285,9 +297,9 @@
         opacity: 1 !important;
       }
       .workflow-step {
+        animation: none !important;
         opacity: 1 !important;
         transform: none !important;
-        transition: none !important;
       }
       .human-review-pulse {
         animation: none !important;

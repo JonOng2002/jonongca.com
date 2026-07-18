@@ -127,7 +127,7 @@ export const aiWorkflow: AIWorkflowData = {
     "Agent permissions are scoped — the QA agent operates read-only; the build agent only modifies files in the approved plan.",
     "The GitHub repository (when published) will contain only public-safe agent configuration files.",
   ],
-  githubUrl: "",
+  githubUrl: "https://github.com/JonOng2002",
   heroScreenshot: "",
   workflowScreenshot: "/images/ai-agents/agents-workflow.png",
   promptExample: "",

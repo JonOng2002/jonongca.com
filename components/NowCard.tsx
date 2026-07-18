@@ -16,7 +16,7 @@ export const NowCard: React.FC = () => {
         {TAGS.map(tag => (
           <div key={tag.label} className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-forest/5 transition-colors group">
             <div className="w-1.5 h-1.5 rounded-full bg-forest-accent/40 shrink-0 group-hover:bg-forest-accent transition-colors" />
-            <span className="text-[12px] text-forest/60 font-medium">{tag.label}</span>
+            <span className="text-[12px] text-forest/60 font-mono font-medium">{tag.label}</span>
           </div>
         ))}
       </div>

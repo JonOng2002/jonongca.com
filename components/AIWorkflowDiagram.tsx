@@ -31,7 +31,7 @@ export const AIWorkflowDiagram: React.FC = () => {
             ) : step.agent === 'Human Review' ? (
               /* Human Review step: visually distinct, staggered */
               <div
-                className="glass-mint rounded-[20px] p-4 flex-1 min-w-[140px] md:min-w-[120px] border border-accent-500/10 agent-card human-review-pulse workflow-step"
+                className="glass-mint rounded-[20px] p-4 flex-1 min-w-[120px] md:min-w-[110px] border border-accent-500/10 agent-card human-review-pulse workflow-step"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <div className="flex items-center gap-2 mb-1.5">
@@ -62,7 +62,7 @@ export const AIWorkflowDiagram: React.FC = () => {
             ) : (
               /* Agent steps: standard glass card, staggered */
               <div
-                className="glass rounded-[20px] p-4 flex-1 min-w-[140px] md:min-w-[120px] agent-card workflow-step"
+                className="glass rounded-[20px] p-4 flex-1 min-w-[120px] md:min-w-[110px] agent-card workflow-step"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <p className="text-[10px] text-forest/40 font-bold uppercase tracking-wider mb-1">

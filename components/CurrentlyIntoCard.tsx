@@ -27,21 +27,21 @@ export const CurrentlyIntoCard: React.FC = () => {
         <div className="flex items-center gap-3">
           <img src="/images/icons/goodreads.svg" className="w-5 h-5 shrink-0 opacity-60" alt="" />
           <div className="min-w-0">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-forest/30 mb-0.5">Reading</p>
+            <p className="text-[11px] font-mono font-bold uppercase tracking-wider text-forest/30 mb-0.5">Reading</p>
             <p className="text-sm text-forest/70 leading-snug font-medium">{reading}</p>
           </div>
         </div>
         <div className="flex items-center gap-3">
           <img src="https://www.vectorlogo.zone/logos/strava/strava-icon.svg" className="w-5 h-5 shrink-0 opacity-60" alt="" />
           <div className="min-w-0">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-forest/30 mb-0.5">Running</p>
+            <p className="text-[11px] font-mono font-bold uppercase tracking-wider text-forest/30 mb-0.5">Running</p>
             <p className="text-sm text-forest/70 leading-snug font-medium">{running}</p>
           </div>
         </div>
         <div className="flex items-center gap-3">
           <img src="/images/icons/goal.svg" className="w-5 h-5 shrink-0 opacity-60" alt="" />
           <div className="min-w-0">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-forest/30 mb-0.5">Goal of the month</p>
+            <p className="text-[11px] font-mono font-bold uppercase tracking-wider text-forest/30 mb-0.5">Goal of the month</p>
             <p className="text-sm text-forest/70 leading-snug font-medium">{STATIC.goal.value}</p>
           </div>
         </div>

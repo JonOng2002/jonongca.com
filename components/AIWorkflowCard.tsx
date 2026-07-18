@@ -13,7 +13,7 @@ export const AIWorkflowCard: React.FC<AIWorkflowCardProps> = ({ onClick }) => {
     >
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="text-[11px] font-bold uppercase tracking-wider text-forest/40 mb-2">
+          <p className="text-[11px] font-mono font-bold uppercase tracking-wider text-forest/40 mb-2">
             AI Engineering
           </p>
           <h3 className="font-bold text-forest text-xl font-display leading-snug group-hover:text-forest-accent transition-colors">

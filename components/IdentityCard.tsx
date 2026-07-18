@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from './Button';
+import { TypewriterText } from './TypewriterText';
 
 interface IdentityCardProps {
   onViewProjects?: () => void;
@@ -14,8 +15,8 @@ export const IdentityCard: React.FC<IdentityCardProps> = ({ onViewProjects }) =>
       <p className="text-base md:text-lg text-forest-accent font-semibold mt-3">
         Data Engineering · AI Engineering · MLOps · Cloud
       </p>
-      <p className="text-sm md:text-base text-forest/50 mt-2 max-w-md leading-relaxed">
-        Building distributed systems for data and AI.
+      <p className="text-sm md:text-base text-forest/50 mt-2 max-w-md leading-relaxed font-mono">
+        <span className="text-forest-accent/60">$</span> <TypewriterText text="Building distributed systems for data and AI." speed={30} delay={200} />
       </p>
       <div className="flex items-center gap-3 mt-5">
         <Button variant="primary" onClick={onViewProjects}>

@@ -62,6 +62,13 @@ export const AIWorkflowPage: React.FC = () => {
           <AIWorkflowDiagram />
         </div>
 
+        {/* Workflow screenshot — directly below the diagram */}
+        {aiWorkflow.workflowScreenshot && (
+          <div className="mt-6">
+            <EvidenceCard src={aiWorkflow.workflowScreenshot} alt="AI Agents Workflow screenshot" caption="The workflow executing across multiple agents" />
+          </div>
+        )}
+
         {/* Optional hero screenshot */}
         {aiWorkflow.heroScreenshot && (
           <div className="mt-6">
@@ -76,10 +83,10 @@ export const AIWorkflowPage: React.FC = () => {
           </div>
         )}
 
-        {/* Optional evidence screenshots */}
+        {/* Other optional evidence (prompt, output examples) */}
         {showEvidence && (
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {evidenceItems.map((item, i) => (
+            {evidenceItems.filter(item => item.src !== aiWorkflow.workflowScreenshot).map((item, i) => (
               <EvidenceCard key={i} {...item} />
             ))}
           </div>

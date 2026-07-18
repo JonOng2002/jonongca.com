@@ -21,7 +21,7 @@ export const AIWorkflowDiagram: React.FC = () => {
       >
         {aiWorkflow.steps.map((step, i) => (
           <React.Fragment key={i}>
-            {/* Input step: minimal label */}
+            {/* Input step: minimal label — no stagger */}
             {step.agent === 'Input' ? (
               <div className="flex items-center gap-2 shrink-0">
                 <span className="text-xs font-bold uppercase tracking-wider text-forest/40 whitespace-nowrap">
@@ -29,8 +29,11 @@ export const AIWorkflowDiagram: React.FC = () => {
                 </span>
               </div>
             ) : step.agent === 'Human Review' ? (
-              /* Human Review step: visually distinct */
-              <div className="glass-mint rounded-[20px] p-4 flex-1 min-w-[140px] md:min-w-[120px] border border-accent-500/10">
+              /* Human Review step: visually distinct, staggered */
+              <div
+                className="glass-mint rounded-[20px] p-4 flex-1 min-w-[140px] md:min-w-[120px] border border-accent-500/10 agent-card human-review-pulse animate-reveal"
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
                 <div className="flex items-center gap-2 mb-1.5">
                   <svg
                     className="w-4 h-4 text-forest-accent shrink-0"
@@ -57,8 +60,11 @@ export const AIWorkflowDiagram: React.FC = () => {
                 </p>
               </div>
             ) : (
-              /* Agent steps: standard glass card */
-              <div className="glass rounded-[20px] p-4 flex-1 min-w-[140px] md:min-w-[120px]">
+              /* Agent steps: standard glass card, staggered */
+              <div
+                className="glass rounded-[20px] p-4 flex-1 min-w-[140px] md:min-w-[120px] agent-card animate-reveal"
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
                 <p className="text-[10px] text-forest/40 font-bold uppercase tracking-wider mb-1">
                   {step.role}
                 </p>

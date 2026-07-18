@@ -24,7 +24,7 @@ export const ProjectMiniCard: React.FC<ProjectMiniProps> = ({
 
   return (
     <div
-      className="glass rounded-[20px] h-full overflow-hidden group cursor-pointer transition-all duration-200 hover:border-[var(--border-hover)] hover:shadow-[var(--shadow-hover)] flex flex-col"
+      className="glass rounded-[20px] h-full overflow-hidden group cursor-pointer project-card-hover flex flex-col"
       onClick={onClick}
     >
       {/* Image section */}
@@ -42,7 +42,7 @@ export const ProjectMiniCard: React.FC<ProjectMiniProps> = ({
       {/* Content section */}
       <div className="flex flex-col flex-1 p-5">
         <div className="mb-2">
-          <h4 className="font-bold text-forest text-base font-display leading-snug group-hover:text-forest-accent transition-colors">
+          <h4 className="project-title font-bold text-forest text-base font-display leading-snug">
             {title}
           </h4>
           {subtitle && (

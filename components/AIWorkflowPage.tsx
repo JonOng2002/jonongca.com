@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { aiWorkflow } from '../src/data/aiWorkflow';
 import { AIWorkflowDiagram } from './AIWorkflowDiagram';
+import { TypewriterText } from './TypewriterText';
 
 const EvidenceCard: React.FC<{ src: string; alt: string; caption: string }> = ({
   src,
@@ -39,11 +40,12 @@ export const AIWorkflowPage: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto relative z-10">
       {/* Section 1: Hook */}
-      <div className="mb-12">
-        <h2 className="font-serif italic text-3xl md:text-4xl text-forest-accent leading-snug mb-5">
-          {aiWorkflow.hook}
+      <div className="mb-12 animate-reveal">
+        <h2 className="font-mono text-sm md:text-base text-forest font-normal leading-relaxed max-w-3xl">
+          <span className="text-forest-accent font-semibold">&gt; </span>
+          <TypewriterText text={aiWorkflow.hook} speed={20} delay={300} />
         </h2>
-        <p className="text-forest/70 text-base md:text-lg leading-relaxed max-w-3xl">
+        <p className="text-forest/70 text-base md:text-lg leading-relaxed max-w-3xl mt-5">
           {aiWorkflow.summary}
         </p>
         {aiWorkflow.heroScreenshot && (
@@ -58,7 +60,7 @@ export const AIWorkflowPage: React.FC = () => {
       </div>
 
       {/* Section 2: Workflow */}
-      <div className="mb-12">
+      <div className="mb-12 animate-reveal">
         <h3 className="font-serif italic text-2xl text-forest-accent mb-5">Workflow</h3>
         <AIWorkflowDiagram />
         {aiWorkflow.architectureDiagram && (
@@ -74,7 +76,7 @@ export const AIWorkflowPage: React.FC = () => {
 
       {/* Section 3: Visual evidence (conditional) */}
       {showEvidence && (
-        <div className="mb-12">
+        <div className="mb-12 animate-reveal">
           <h3 className="font-serif italic text-2xl text-forest-accent mb-5">Evidence</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {evidenceItems.map((item, i) => (
@@ -85,7 +87,7 @@ export const AIWorkflowPage: React.FC = () => {
       )}
 
       {/* Section 4: Model-selection rationale */}
-      <div className="mb-12">
+      <div className="mb-12 animate-reveal">
         <h3 className="font-serif italic text-2xl text-forest-accent mb-5">Model Selection</h3>
         <p className="text-forest/60 text-sm mb-5 leading-relaxed">
           Each agent uses a model selected for the specific task it performs. The same model
@@ -102,7 +104,7 @@ export const AIWorkflowPage: React.FC = () => {
             </thead>
             <tbody>
               {aiWorkflow.models.map((model, i) => (
-                <tr key={model.name + model.role} className="border-b border-[var(--border)] last:border-0">
+                <tr key={model.name + model.role} className="model-table-row border-b border-[var(--border)] last:border-0">
                   <td className="py-3 pr-4 align-top">
                     <span className="font-bold text-forest text-sm font-display whitespace-nowrap">
                       {model.name}
@@ -127,7 +129,7 @@ export const AIWorkflowPage: React.FC = () => {
       </div>
 
       {/* Section 5: Control & human review */}
-      <div className="mb-12">
+      <div className="mb-12 animate-reveal">
         <h3 className="font-serif italic text-2xl text-forest-accent mb-5">Control &amp; Human Review</h3>
         <div className="glass-mint rounded-[20px] p-6 md:p-8 mb-6">
           <p className="text-forest/70 text-base leading-relaxed">
@@ -161,7 +163,7 @@ export const AIWorkflowPage: React.FC = () => {
       </div>
 
       {/* Section 6: Limitations & future GitHub */}
-      <div className="mb-10">
+      <div className="mb-10 animate-reveal">
         <h3 className="font-serif italic text-2xl text-forest-accent mb-5">Implementation Notes</h3>
         <div className="glass rounded-[20px] p-6 md:p-8 space-y-4">
           <div>
@@ -185,9 +187,9 @@ export const AIWorkflowPage: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View agent configurations on GitHub (opens in new tab)"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-200 border border-forest/20 text-forest hover:bg-forest/5 hover:border-forest/40"
+              className="github-link inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-200 border border-forest/20 text-forest hover:bg-forest/5 hover:border-forest/40"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="github-link-arrow w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
               </svg>
               View agent configurations

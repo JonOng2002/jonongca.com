@@ -18,7 +18,7 @@ export const LifeWidgetCard: React.FC<Props> = ({ widget }) => {
 
   const inner = (
     <div
-      className="group relative rounded-[2rem] overflow-hidden h-full transition-all duration-500 hover:-translate-y-1 hover:shadow-lg cursor-pointer"
+      className="group relative rounded-[20px] overflow-hidden h-full transition-all duration-500 hover:-translate-y-1 hover:shadow-lg cursor-pointer"
       style={{ background: widget.bg }}
     >
       {widget.items.map((item, i) => (

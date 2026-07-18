@@ -4,6 +4,13 @@ node_modules
 # build output
 dist
 
+# OpenCode agent tooling — build artifacts, not configuration
+.opencode/node_modules/
+
+# Portfolio reference screenshots (development artifacts)
+docs/references/
+docs/plans/image/
+
 # environment variables
 .env
 .env.local

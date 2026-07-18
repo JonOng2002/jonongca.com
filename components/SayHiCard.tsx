@@ -17,7 +17,7 @@ const LINKS = [
 
 export const SayHiCard: React.FC = () => {
   return (
-    <div className="glass-mint rounded-[2rem] p-6 md:p-8 h-full flex flex-col justify-center">
+    <div className="glass-mint rounded-[20px] p-6 md:p-8 h-full flex flex-col justify-center">
       <p className="font-serif italic text-2xl md:text-3xl text-forest-accent mb-6">Say Hi</p>
       <div className="grid grid-cols-2 gap-3">
         {LINKS.map(link => (
@@ -25,13 +25,11 @@ export const SayHiCard: React.FC = () => {
             key={link.label}
             href={link.href}
             target={link.label === 'Email' ? undefined : '_blank'}
-            rel="noopener noreferrer"
-            className="group flex flex-col items-center justify-center gap-1.5 bg-white rounded-2xl p-4 text-forest hover:bg-forest hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-            style={{ transition: 'transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease' }}
-            onMouseEnter={(e) => { if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) { e.currentTarget.style.transform = 'translateY(-2px) rotate(8deg)'; } }}
-            onMouseLeave={(e) => { e.currentTarget.style.transform = ''; }}
+            rel={link.label === 'Email' ? undefined : 'noopener noreferrer'}
+            aria-label={link.label === 'Email' ? undefined : `${link.label} (opens in new tab)`}
+            className="group flex flex-col items-center justify-center gap-1.5 bg-white rounded-2xl p-4 text-forest hover:bg-forest hover:text-white transition-all duration-200"
           >
-            <div className="transition-transform duration-300 group-hover:scale-110">
+            <div>
               {link.icon}
             </div>
             <span className="text-[10px] font-semibold tracking-wide">{link.label}</span>

@@ -21,7 +21,7 @@ export const CurrentlyIntoCard: React.FC = () => {
   }, []);
 
   return (
-    <div className="glass rounded-[2rem] p-6 md:p-8 h-full flex flex-col">
+    <div className="glass rounded-[20px] p-6 md:p-8 h-full flex flex-col">
       <p className="font-serif italic text-2xl text-forest-accent mb-5">Currently into</p>
       <div className="space-y-4 flex-1">
         <div className="flex items-center gap-3">

@@ -100,6 +100,18 @@
       --border-hover: rgba(14, 36, 24, 0.12);
       --shadow: 0 2px 12px rgba(14, 36, 24, 0.03);
       --shadow-hover: 0 4px 24px rgba(14, 36, 24, 0.05);
+      /* Border radius tokens */
+      --radius-card: 20px;
+      --radius-button: 12px;
+      --radius-pill: 9999px;
+      /* Type scale tokens (rationalized: 12/14/16/20/24/32/40px) */
+      --font-size-xs: 12px;
+      --font-size-sm: 14px;
+      --font-size-base: 16px;
+      --font-size-lg: 20px;
+      --font-size-xl: 24px;
+      --font-size-2xl: 32px;
+      --font-size-3xl: 40px;
     }
 
     body {
@@ -150,15 +162,35 @@
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(14, 36, 24, 0.12); border-radius: 10px; }
 
-    /* Custom cursor */
-    .custom-cursor { width: 24px; height: 24px; border: 2px solid rgba(15, 163, 107, 0.4); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: width 0.2s, height 0.2s, border-color 0.2s, transform 0.1s; transform: translate(-50%, -50%); }
-    .custom-cursor.hover { width: 40px; height: 40px; border-color: rgba(15, 163, 107, 0.6); }
-    @media (max-width: 768px), (pointer: coarse) { .custom-cursor { display: none; } }
-
     /* Scroll reveal */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .animate-reveal { opacity: 0; }
     .animate-reveal.visible { animation: fadeUp 0.6s ease forwards; }
+
+    /* Focus visible */
+    *:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: var(--radius-button);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .animate-reveal,
+      .animate-reveal.visible {
+        animation: none !important;
+        opacity: 1 !important;
+      }
+      .react-grid-item {
+        transition: none !important;
+      }
+    }
 
     .react-grid-layout { position: relative; transition: height 200ms ease; }
     .react-grid-item { transition: all 200ms ease; transition-property: left, top; }
@@ -209,15 +241,6 @@
 <body class="font-sans">
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
-  <script>
-    (function () {
-      if (window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(pointer: coarse)').matches) return;
-      var c = document.createElement('div'); c.className = 'custom-cursor'; document.body.appendChild(c);
-      document.addEventListener('mousemove', function(e) { c.style.left = e.clientX + 'px'; c.style.top = e.clientY + 'px'; });
-      document.addEventListener('mouseover', function(e) { var t = e.target; if (t.closest('a, button, .cursor-hover')) c.classList.add('hover'); else c.classList.remove('hover'); });
-      document.addEventListener('mouseout', function() { c.classList.remove('hover'); });
-    })();
-  </script>
   <script>
     (function () {
       var observer = new IntersectionObserver(function(entries) {

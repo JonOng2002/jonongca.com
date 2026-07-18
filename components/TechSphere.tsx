@@ -128,7 +128,7 @@ export const TechSphere: React.FC = () => {
     }, []);
 
     return (
-        <div className="glass rounded-[2rem] p-6 flex flex-col h-full relative overflow-hidden bg-white dark:bg-obsidian-900 shadow-sm hover:shadow-xl transition-all duration-300">
+        <div className="glass rounded-[20px] p-6 flex flex-col h-full relative overflow-hidden bg-white dark:bg-obsidian-900 shadow-sm hover:shadow-xl transition-all duration-300">
 
             <p className="font-serif italic text-2xl text-forest-accent mb-3 shrink-0">My tech stack</p>
 

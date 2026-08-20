@@ -23,10 +23,11 @@ import { projects } from './src/data/projects';
 import { experiences } from './src/data/experience';
 import { AIWorkflowCard } from './components/AIWorkflowCard';
 import { AIWorkflowPage } from './components/AIWorkflowPage';
+import { WorkspaceShell } from './components/workspace/WorkspaceShell';
 
 type Page = 'home' | 'projects' | 'ai' | 'experience' | 'life' | 'about';
 
-const App: React.FC = () => {
+const HomeApp: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [selectedDetailProject, setSelectedDetailProject] = useState<any>(null);
@@ -332,5 +333,7 @@ const App: React.FC = () => {
     </div>
   );
 };
+
+const App: React.FC = () => <WorkspaceShell />;
 
 export default App;

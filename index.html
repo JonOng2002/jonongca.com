@@ -23,7 +23,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -95,6 +95,16 @@
       --text: #0E2418;
       --muted: #5A6B61;
       --accent: #0FA36B;
+      --workspace: #090909;
+      --terminal: #11100F;
+      --chrome: #292826;
+      --green-bright: #F0C674;
+      --terminal-accent: #F0C674;
+      --terminal-green: #9BC7B0;
+      --terminal-dim: #8F8A80;
+      --terminal-rule: #403D37;
+      --terminal-font: 'IBM Plex Mono', 'SF Mono', Monaco, Menlo, monospace;
+      --terminal-welcome-font: 'JetBrains Mono', 'IBM Plex Mono', monospace;
       --accent-soft: rgba(15, 163, 107, 0.08);
       --border: rgba(14, 36, 24, 0.06);
       --border-hover: rgba(14, 36, 24, 0.12);
@@ -112,6 +122,34 @@
       --font-size-xl: 24px;
       --font-size-2xl: 32px;
       --font-size-3xl: 40px;
+    }
+
+    .font-terminal {
+      font-family: var(--terminal-font);
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "calt" 0;
+    }
+
+    .terminal-welcome {
+      font-family: var(--terminal-welcome-font);
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "calt" 0;
+      letter-spacing: -0.04em;
+    }
+
+    .jonongca-wordmark {
+      max-width: 100%;
+      overflow: hidden;
+      color: var(--terminal-accent);
+      font-family: var(--terminal-font);
+      font-size: clamp(0.25rem, 1.15vw, 0.7rem);
+      font-variant-ligatures: none;
+      line-height: 1.05;
+      white-space: pre;
+      background: linear-gradient(180deg, #FFE6A0 0%, var(--terminal-accent) 52%, #B86F2D 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     body {

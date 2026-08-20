@@ -130,6 +130,25 @@
       font-feature-settings: "liga" 0, "calt" 0;
     }
 
+    .workspace-light {
+      --workspace: #E9E4D8;
+      --terminal: #F8F5ED;
+      --chrome: #DED8CA;
+      --terminal-accent: #9A5B00;
+      --terminal-green: #27745B;
+      --terminal-dim: #665F55;
+      --terminal-rule: #BDB4A5;
+      color: #201D18;
+    }
+
+    .workspace-light [class*="text-white"] {
+      color: #28241E !important;
+    }
+
+    .workspace-light [class*="bg-black"] {
+      background-color: rgba(255, 255, 255, 0.42) !important;
+    }
+
     .terminal-welcome {
       font-family: var(--terminal-welcome-font);
       font-variant-ligatures: none;

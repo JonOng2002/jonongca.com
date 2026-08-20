@@ -27,6 +27,7 @@ export const WorkspaceShell: React.FC = () => {
   });
   const [nextZIndex, setNextZIndex] = useState(3);
   const [largeDesktop, setLargeDesktop] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 1440);
+  const [lightMode, setLightMode] = useState(() => typeof window !== 'undefined' && window.localStorage.getItem('jonongca-theme') === 'light');
   const [cwd, setCwd] = useState(virtualRoot);
   const [input, setInput] = useState('');
   const [output, setOutput] = useState<string[]>([]);
@@ -167,13 +168,17 @@ export const WorkspaceShell: React.FC = () => {
   const focusTerminal = () => { if (!largeDesktop && browser) { navigate('/'); return; } focusWindow('terminal'); };
 
   useEffect(() => {
+    window.localStorage.setItem('jonongca-theme', lightMode ? 'light' : 'dark');
+  }, [lightMode]);
+
+  useEffect(() => {
     const onResize = () => setLargeDesktop(window.innerWidth >= 1440);
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
   return (
-    <main className="font-terminal relative min-h-screen overflow-hidden bg-[var(--workspace)] text-white" aria-label="Jonathan Ong developer workspace">
+    <main className={`font-terminal relative min-h-screen overflow-hidden bg-[var(--workspace)] text-white ${lightMode ? 'workspace-light' : ''}`} aria-label="Jonathan Ong developer workspace">
       <div className="pointer-events-none absolute inset-0 opacity-40" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
       {terminal.state !== 'maximised' && <div className="absolute left-4 top-4 z-10 font-mono text-[10px] uppercase tracking-[0.2em] text-white/35 md:left-6 md:top-6">JONONGCA.COM · WORKSPACE</div>}
       <div className="absolute inset-0 pb-20 pt-14">
@@ -195,7 +200,7 @@ export const WorkspaceShell: React.FC = () => {
           return <AppWindow id={browser.id} title={browser.title} bounds={browser.bounds} state={browser.state} zIndex={browser.zIndex} minWidth={680} minHeight={480} active={browser.zIndex === Math.max(...windows.map((item) => item.zIndex))} onFocus={() => focusWindow(browser.id)} onBoundsChange={(bounds) => updateWindow(browser.id, { bounds })} onStateChange={(state) => updateWindow(browser.id, { state })} onClose={() => navigate('/')}><BrowserWindow onClose={() => navigate('/')} /></AppWindow>;
         })()}
       </div>
-      <WindowDock terminalMinimised={terminal.state === 'minimised'} browserAvailable={Boolean(browser)} browserFocused={Boolean(browser && browser.zIndex > terminal.zIndex)} onTerminal={focusTerminal} onBrowser={() => browser ? focusBrowser() : undefined} />
+      <WindowDock terminalMinimised={terminal.state === 'minimised'} browserAvailable={Boolean(browser)} browserFocused={Boolean(browser && browser.zIndex > terminal.zIndex)} lightMode={lightMode} onToggleTheme={() => setLightMode((value) => !value)} onTerminal={focusTerminal} onBrowser={() => browser ? focusBrowser() : undefined} />
     </main>
   );
 };
